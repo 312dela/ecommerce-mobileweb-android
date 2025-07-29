@@ -38,6 +38,7 @@ public class OrderSteps {
     private String selectLocation = JSONDataLoader.getSelectLocation();
 
     private String orderId;
+    private String token;
     private Response response;
 
     public OrderSteps() {
@@ -54,7 +55,7 @@ public class OrderSteps {
     public void i_am_already_logged_on_the_website_page() {
         basePage.goToUrl();
 
-        String token = AuthAPI.loginAndGetToken(email, password);
+        token = AuthAPI.loginAndGetToken(email, password);
 
         JavascriptExecutor js = (JavascriptExecutor) Hooks.driver;
         js.executeScript("window.localStorage.setItem('token', '" + token + "')");
@@ -63,9 +64,9 @@ public class OrderSteps {
 
     @Given("a different user creates an order")
     public void a_different_user_creates_an_order() {
-        String userAToken = AuthAPI.loginAndGetToken(otherUserEmail, password);
+        String otherUserToken = AuthAPI.loginAndGetToken(otherUserEmail, password);
 
-        orderId = OrderAPI.placeOrder(userAToken, productId);
+        orderId = OrderAPI.placeOrder(otherUserToken, productId);
     }
 
     @When("I add products to the cart")
@@ -97,9 +98,7 @@ public class OrderSteps {
 
     @When("I try to view that order using current user")
     public void i_try_to_view_that_order_using_current_user() {
-        String userBToken = AuthAPI.loginAndGetToken(email, password);
-        response = OrderAPI.getOrderDetails(userBToken,
-                orderId);
+        response = OrderAPI.getOrderDetails(token, orderId);
     }
 
     @When("I change the shipping email to a different one")
