@@ -15,4 +15,7 @@ public class EmailGenerator {
     public static String toUpperCaseFirstChar(String email) {
         return email.substring(0, 1).toUpperCase() + email.substring(1);
     }
+
+    public static String emailLower = EmailGenerator.generateEmail();
+    public static String emailUpper = EmailGenerator.toUpperCaseFirstChar(emailLower);
 }
