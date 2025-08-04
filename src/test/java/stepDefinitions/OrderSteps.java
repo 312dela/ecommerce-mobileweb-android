@@ -75,24 +75,24 @@ public class OrderSteps {
         dashboardPage.addProductToCart(product2);
     }
 
-    @When("I go to the cart")
-    public void i_go_to_the_cart() {
+    @When("I go to cart page")
+    public void i_go_to_the_cart_page() {
         dashboardPage.goToCart();
     }
 
     @When("I proceed to checkout")
-    public void i_proceed_to_checkout() throws InterruptedException {
+    public void i_proceed_to_checkout() {
         dashboardPage.goToCart();
         cartPage.clickCheckout();
     }
 
     @When("I input the Country Shipping Info")
-    public void i_input_the_country_shipping_info() throws InterruptedException {
+    public void i_input_the_country_shipping_info() {
         orderPage.inputCountryShippingInfo(insertLocation, selectLocation);
     }
 
     @When("I click order button")
-    public void i_click_order_button() throws InterruptedException {
+    public void i_click_order_button() {
         orderPage.clickOrder();
     }
 
@@ -102,7 +102,7 @@ public class OrderSteps {
     }
 
     @When("I change the shipping email to a different one")
-    public void i_change_the_shipping_email_to_a_different_one() throws InterruptedException {
+    public void i_change_the_shipping_email_to_a_different_one() {
         orderPage.changeEmailShippingInfo(otherUserEmail);
     }
 

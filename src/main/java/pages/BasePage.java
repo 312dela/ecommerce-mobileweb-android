@@ -32,6 +32,10 @@ public class BasePage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
+    public void waitForText(By locator, String text) {
+        wait.until(ExpectedConditions.textToBePresentInElementLocated(locator, text));
+    }
+
     public void waitForElementToDisappear(By locator) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }

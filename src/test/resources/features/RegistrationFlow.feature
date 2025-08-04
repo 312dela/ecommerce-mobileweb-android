@@ -14,6 +14,6 @@ Feature: Registration Flow Validation
         Then I should see the 'already' message
 
     Scenario: Register Existing Account - Uppercase Email
-        When I fill the registration form with uppercase email 
+        When I fill the registration form with uppercase email
         And I click on the submit button
         Then I should see the 'already' message

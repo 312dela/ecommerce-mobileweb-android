@@ -13,13 +13,13 @@ public class RegistrationSteps {
     }
 
     @When("I fill the registration form with lowercase email")
-    public void i_fill_the_registration_form_with_lowerase_email() throws InterruptedException {
+    public void i_fill_the_registration_form_with_lowerase_email() {
         Hooks.scenario.log("This email is used in this test: " + EmailGenerator.emailLower);
         registrationPage.fillRegistrationForm(EmailGenerator.emailLower);
     }
 
     @When("I fill the registration form with uppercase email")
-    public void i_fill_the_registration_form_with_uppercase_email() throws InterruptedException {
+    public void i_fill_the_registration_form_with_uppercase_email() {
         Hooks.scenario.log("This email is used in this test: " + EmailGenerator.emailUpper);
         registrationPage.fillRegistrationForm(EmailGenerator.emailUpper);
     }

@@ -1,3 +1,4 @@
+
 Feature: Order Flow Validation
 
     Background:
@@ -14,7 +15,7 @@ Feature: Order Flow Validation
         And I proceed to checkout
         And I input the Country Shipping Info
         And I click order button
-        
+
         Then I should see the email billing address is the same as the respective account
 
     Scenario: Create order with different email from the respective account
@@ -28,7 +29,7 @@ Feature: Order Flow Validation
         And I click order button
 
         Then I should see the email billing address is different from the respective account
-
+    
     Scenario: Create order without shipping location provided
         When I add products to the cart
         And I proceed to checkout
@@ -40,5 +41,5 @@ Feature: Order Flow Validation
         Given a different user creates an order
 
         When I try to view that order using current user
-        
+
         Then the response should be 403
