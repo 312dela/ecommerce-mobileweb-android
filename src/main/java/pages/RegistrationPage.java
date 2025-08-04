@@ -21,7 +21,7 @@ public class RegistrationPage extends BasePage {
         super(driver);
     }
 
-    public void fillRegistrationForm(String email) throws InterruptedException {
+    public void fillRegistrationForm(String email) {
         safeClick(registerLauncher);
         safeType(firstNameField, "John");
         safeType(lastNameField, "Doe");
@@ -35,7 +35,7 @@ public class RegistrationPage extends BasePage {
         safeClick(genderFemaleRadio);
         safeType(passwordField, "Test12345");
         safeType(confirmPasswordField, "Test12345");
-        safeClick(requiredCheckbox);
+        forceClick(requiredCheckbox);
     }
 
 }

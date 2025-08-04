@@ -26,15 +26,11 @@ public class OrderPage extends BasePage {
         scrollToElement(shippingEmailField);
         safeType(countryField, locationInput);
         By locationOption = By.xpath("//*[contains(text(),'" + selectLocation + "')]");
-        wait.until(ExpectedConditions.textToBePresentInElementLocated(
-                locationOption, selectLocation));
-        safeClick(locationOption);
+        forceClick(locationOption);
     }
 
     public void clickOrder() {
-        scrollToElement(shippingEmailField);
-        waitForElementVisible(orderButton);
-        safeClick(orderButton);
+        forceClick(orderButton);
     }
 
     public String getShippingEmailLabel() {

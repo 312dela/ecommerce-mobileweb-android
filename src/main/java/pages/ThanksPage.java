@@ -14,7 +14,7 @@ public class ThanksPage extends BasePage {
 
     public void goToMyOrders() {
         openHamburgerMenu();
-        safeClick(ordersNavbar);
+        forceClick(ordersNavbar);
     }
 
     public String getOrderId() {
